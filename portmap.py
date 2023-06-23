@@ -19,6 +19,20 @@ except:
     except:
         try:
             hub=PrimeHub()
+            try:
+                motor_left=Motor(Port.E, Direction.COUNTERCLOCKWISE)
+                motor_right=Motor(Port.A, Direction.CLOCKWISE)
+                drive_base=DriveBase(motor_left, motor_right, 56, 113)
+                color_sensor_left=ColorSensor(Port.F)
+                color_sensor_right=ColorSensor(Port.B)
+                #alias names from old PortMap for compatibility
+                MotorLeft=motor_left
+                MotorRight=motor_right
+                driveBase=drive_base
+                colorSensorLeft=color_sensor_left
+                colorSensorRight=color_sensor_right
+            except:
+                pass
         except:
             try:
                 hub=TechnicHub()
