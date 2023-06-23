@@ -43,4 +43,7 @@ except:
                     try:
                         hub=EssentialHub()
                     except:
-                        hub=None
+                        try:
+                            hub=EV3Brick()
+                        except:
+                            pass
