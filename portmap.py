@@ -1,5 +1,4 @@
 from pybricks.hubs import *
-from pybricks.iodevices import *
 from pybricks.parameters import *
 from pybricks.pupdevices import *
 from pybricks.robotics import *
@@ -9,6 +8,14 @@ try:
 except:
     try:
         hub=MoveHub()
+        motor_left=Motor(Port.B, Direction.COUNTERCLOCKWISE)
+        motor_right=Motor(Port.A, Direction.CLOCKWISE)
+        drive_base=DriveBase(motor_left, motor_right, 50, 50)
+        try:
+            motor_external=Motor(Port.C)
+            color_distance_sensor=ColorDistanceSensor(Port.D)
+        except:
+            pass
     except:
         try:
             hub=PrimeHub()
